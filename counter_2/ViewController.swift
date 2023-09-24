@@ -14,29 +14,36 @@ class ViewController: UIViewController {
     @IBOutlet weak private var reset: UIButton!
     @IBOutlet weak private var minus: UIButton!
     @IBOutlet weak private var plus: UIButton!
-    
-    
-   
+    // функция форматирующая дату
+    private func date() -> String{
+        var currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM/d yyyy, HH:mm "
+        return dateFormatter.string(from: currentDate)
+    }
     var value = 0
+    // функция увеличивает счетчик на 1 и выводит в сообщение на экран приложения
     private func incrementCounter(){
         value += 1
         result.text = String(value)
-        console.text += "\n[\(NSDate())]: значение изменено на +1"
+        console.text += "\n[\(date())]: значение изменено на +1"
     }
+    // функция уменьшает счетчик на 1, если оно больше 0 и выводит в сообщение на экран приложения
     private func decrementCounter(){
         if value == 0{
             result.text = String(value)
-            console.text += "\n[\(NSDate())]: попытка уменьшить значение счётчика ниже 0"
+            console.text += "\n[\(date())]: попытка уменьшить значение счётчика ниже 0"
         }else if value > 0{
             value -= 1
             result.text = String(value)
-            console.text += "\n[\(NSDate())]: значение изменено на -1"
+            console.text += "\n[\(date())]: значение изменено на -1"
         }
     }
+    // функция сбрасыват счетчик и выводит соответсвующее сообщение
     private func resetCounter(){
         value = 0
         result.text = String(value)
-        console.text += "\n[\(NSDate())]: значение сброшено"
+        console.text += "\n[\(date())]: значение сброшено"
     }
  
     override func viewDidLoad() {
