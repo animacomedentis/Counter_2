@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         }else if value > 0{
             value -= 1
             result.text = String(value)
-            console.text += "\n[дата и время]: значение изменено на -1"
+            console.text += "\n[\(NSDate())]: значение изменено на -1"
         }
     }
     private func resetCounter(){
