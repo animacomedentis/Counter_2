@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak private var plus: UIButton!
     // функция форматирующая дату
     private func date() -> String{
-        var currentDate = Date()
+        let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM/d yyyy, HH:mm "
         return dateFormatter.string(from: currentDate)
