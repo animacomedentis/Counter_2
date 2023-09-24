@@ -45,6 +45,12 @@ class ViewController: UIViewController {
         result.text = String(value)
         console.text += "\n[\(date())]: значение сброшено"
     }
+    //функция scroll для окна истории обновлений
+    private func scroll(){
+        let range = NSRange(location: -1, length: 1)
+        console.scrollRangeToVisible(range)
+    }
+    
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,17 +59,17 @@ class ViewController: UIViewController {
     }
     @IBAction private func increment(_ sender: Any) {
         incrementCounter()
-        
+        scroll()
     }
     
     @IBAction private func decrement(_ sender: Any) {
         decrementCounter()
-        
+        scroll()
     }
     
     @IBAction private func reset(_ sender: Any) {
         resetCounter()
-        
+        scroll()
     }
 }
  
